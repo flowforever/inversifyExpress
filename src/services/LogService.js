@@ -10,13 +10,10 @@ var {injectable, inject} = inversify;
  * */
 @injectable()
 class LogService {
-
-    constructor(@inject('req') otherReq) {
-        this.otherReq = otherReq;
-    }
-
     @inject('req')
     req = null;
+
+    logs = [];
 
     write(str) {
         let msg = `${this.req.userName} : ${str}`;
